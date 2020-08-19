@@ -59,6 +59,10 @@ public class DisplayProducts extends HttpServlet {
 					query = "Select * from Products where Category LIKE '%"+productCat+"%'";
 				}
 			}
+			else if(search.equals("allProducts"))
+			{
+				query = "Select * from Products";
+			}
 
 			if(!query.equals(""))
 			{
