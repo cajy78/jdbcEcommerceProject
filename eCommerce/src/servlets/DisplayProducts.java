@@ -22,8 +22,6 @@ public class DisplayProducts extends HttpServlet {
 		{
 			String search = request.getParameter("searchVia");
 			String query = "";
-			//pw.write(search+"<br>");
-			//pw.write("Query is now: "+query+"<br>");
 			
 			if(search.equals("viaProductID"))
 			{
@@ -32,9 +30,9 @@ public class DisplayProducts extends HttpServlet {
 				{
 					pw.write("Please enter a value within Product ID");
 				}
-				else {
+				else
+				{
 					query = "Select * from Products where Product_ID="+productID;
-					// test block pw.write("Query is now: "+query+"<br>");
 				}
 			}
 			else if(search.equals("viaProductName"))
@@ -46,8 +44,7 @@ public class DisplayProducts extends HttpServlet {
 				}
 				else
 				{
-					query = "Select * from Products where Name='"+productName+"'";
-					//pw.write("Query is now: "+query+"<br>");
+					query = "Select * from Products where Name LIKE '%"+productName+"%'";
 				}
 			}
 			else if(search.equals("viaProductCat"))
@@ -59,34 +56,45 @@ public class DisplayProducts extends HttpServlet {
 				}
 				else
 				{
-					query = "Select * from Products where Category='"+productCat+"'";
-					//pw.write("Query is now: "+query+"<br>");
+					query = "Select * from Products where Category LIKE '%"+productCat+"%'";
 				}
 			}
 
 			if(!query.equals(""))
 			{
-				//pw.write("Entered DB IF block Query is now: "+query+"<br>");
 				Connection con = DatabaseConnection.InitiateDBConnection();
 				Statement stm = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 				ResultSet rs = stm.executeQuery(query);
 				if(rs.next())
 				{
-					//pw.write("Entered RS If Block Query is now: "+query+"<br>");
+					pw.write("<h1>Product Info Page</h1>");
+					pw.write("<table border=1>");
+					pw.write("<thead><tr><th>Name</th><th>Category</th><th>Sub-Category</th>"
+							+ "<th>Price</th><th>Stock</th><th>Description</th></tr></thead>");
+					pw.write("<tbody>");
 					rs.beforeFirst();
 					while(rs.next())
 					{
-						pw.write("There is data");
+						pw.write("<tr>"
+									+"<td>"+ rs.getString(2)+"</td>"
+									+ "<td>"+ rs.getString(3)+"</td>"
+									+ "<td>"+ rs.getString(4)+"</td>"
+									+ "<td>"+ rs.getFloat(5)+"</td>"
+									+ "<td>"+ rs.getInt(6)+"</td>"
+									+ "<td>"+ rs.getString(7)+"</td>"
+									+"</tr>");
 					}
+					pw.write("</tbody>");
+					pw.write("</table>");
+					pw.write("<br><br><a href='index.html'>Products Master Page</a>");
 				}
 				else
 				{
-					pw.write("there's no data");
+					pw.write("<h1>Product Info Page</h1>");
+					pw.write("<p style='color:red'>No data exists with the current selection</p>");
+					pw.write("<p style='color:red'>Please enter correct Product ID Or Name Or Category</p>");
+					pw.write("<br><br><a href='index.html'>Products Master Page</a>");
 				}
-			}
-			else
-			{
-				pw.write("Enter data in text fields");
 			}
 		}
 		catch(Exception e)

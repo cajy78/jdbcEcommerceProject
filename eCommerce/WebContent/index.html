@@ -51,7 +51,20 @@
 				<td><input type="text" name="productCategory" id="productCategory"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="Submit" value="Get Product" name="getProductbyCategory" id="getProductbyCategory"></td>
+				<td colspan="3"><input type="Submit" value="Get Product" name="getProductbyCategory" id="getProductbyCategory"></td>
+			</tr>
+		</table>
+	</form>
+		<form method="get" action="DisplayProducts">
+		<table>
+			<tr>
+				<td><label>Show All products</label></td>
+			</tr>
+			<tr>
+				<td><input type="hidden" name="searchVia" value="viaProductCat"></td>
+			</tr>
+			<tr>
+				<td><input type="Submit" value="Click to Show" name="getAllProducts" id="getAllProducts"></td>
 			</tr>
 		</table>
 	</form>
