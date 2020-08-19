@@ -28,7 +28,10 @@ public class DisplayProducts extends HttpServlet {
 				String productID = request.getParameter("productID");
 				if(productID.equals(""))
 				{
-					pw.write("Please enter a value within Product ID");
+					pw.write("<h1>Product Info Page</h1>");
+					pw.write("<p style='color:red'>Please enter a Product ID</p>");
+					pw.write("<p style='color:red'>Product ID field cannot be left blank while searching for products via Product ID</p>");
+					pw.write("<br><br><a href='index.html'>Products Master Page</a>");
 				}
 				else
 				{
@@ -40,7 +43,10 @@ public class DisplayProducts extends HttpServlet {
 				String productName = request.getParameter("productName");
 				if(productName.equals(""))
 				{
-					pw.write("Please enter a Product Name");
+					pw.write("<h1>Product Info Page</h1>");
+					pw.write("<p style='color:red'>Please enter a Product Name</p>");
+					pw.write("<p style='color:red'>Product Name field cannot be left blank while searching for products via Product Name</p>");
+					pw.write("<br><br><a href='index.html'>Products Master Page</a>");
 				}
 				else
 				{
@@ -52,7 +58,10 @@ public class DisplayProducts extends HttpServlet {
 				String productCat = request.getParameter("productCategory");
 				if(productCat.equals(""))
 				{
-					pw.write("Please enter a Product Category");
+					pw.write("<h1>Product Info Page</h1>");
+					pw.write("<p style='color:red'>Please enter a Product Category</p>");
+					pw.write("<p style='color:red'>Product Category field cannot be left blank while searching for products via Product Category</p>");
+					pw.write("<br><br><a href='index.html'>Products Master Page</a>");
 				}
 				else
 				{
