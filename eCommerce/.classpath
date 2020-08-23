@@ -21,5 +21,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/cajy7/Downloads/selenium-server-standalone-3.141.59.jar"/>
 	<classpathentry kind="lib" path="C:/Users/cajy7/Downloads/commons-io-2.7-bin/commons-io-2.7/commons-io-2.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/cajy7/Downloads/sikulixide-2.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/cajy7/Downloads/sikulixapi-2.0.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
